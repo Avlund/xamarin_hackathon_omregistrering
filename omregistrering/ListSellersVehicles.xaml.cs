@@ -1,6 +1,4 @@
-﻿using System.Collections.ObjectModel;
-using System.Linq;
-using Xamarin.Forms;
+﻿using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace omregistrering
@@ -36,9 +34,10 @@ namespace omregistrering
         {
             if (e.Item == null)
                 return;
-            //string id = Vehicles.vehicles1.First().RegNumber;
-            ListVehicleDetails listVehicleDetails = new ListVehicleDetails();
-            listVehicleDetails.RegNumber = "BA50100";
+
+            Vehicle vehicle = (Vehicle)e.Item;
+            ListVehicleDetails listVehicleDetails = new ListVehicleDetails(vehicle.RegNumber, true);
+
             await Navigation.PushAsync(listVehicleDetails);
 
             //Deselect Item
