@@ -37,14 +37,9 @@ namespace omregistrering
         {
             HttpClient client = new HttpClient();
             var uri = new Uri("http://10.105.112.115:8080/acquire/initiate/ww00007");
-
-            var values = new Dictionary<string, string> {{ "handoffId", handoffId }};
-            //var httpContent = new FormUrlEncodedContent(values);
-
             var httpContent = new StringContent("{ 'handoffId': '" + handoffId + "'}", Encoding.UTF8, "application/json");
 
             var response = client.PostAsync(uri, httpContent).Result;
-
             response.EnsureSuccessStatusCode();
 
             var content = response.Content.ReadAsStringAsync().Result;
