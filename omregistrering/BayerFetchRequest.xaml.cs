@@ -23,8 +23,10 @@ namespace omregistrering
                 var acquireResponse = callRestService(((Entry)sender).Text);
 
                 if (acquireResponse != null)
-                {
-                    await Navigation.PushAsync(new ListVehicleDetails());
+                {                    
+                    ListVehicleDetails listVehicleDetails = new ListVehicleDetails("XY55999", false);
+
+                    await Navigation.PushAsync(listVehicleDetails);
                 }
             } catch(Exception ex) {
                 Console.WriteLine("fejl: " + ex.Message);
