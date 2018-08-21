@@ -16,6 +16,8 @@ namespace omregistrering
 	{
         public string RegNumber {get; set; }
         Vehicle VehicleInstance;
+        bool seller;
+        string handoffId;
 
         public ListVehicleDetails()
         {
@@ -26,6 +28,7 @@ namespace omregistrering
 
         public ListVehicleDetails(string regNumber, bool seller)
         {
+            this.seller = seller;
             this.RegNumber = regNumber;
             VehicleInstance = new Vehicles().getVehicle(RegNumber);
             InitializeComponent();
@@ -44,25 +47,56 @@ namespace omregistrering
             }
         }
 
+        public ListVehicleDetails(string handoffId)
+        {
+            this.RegNumber = "XY55999";
+            this.handoffId = handoffId;
+            VehicleInstance = new Vehicles().getVehicle(RegNumber);
+            InitializeComponent();
+            regNumberLabel.Text = VehicleInstance.RegNumber;
+            makeLabel.Text = VehicleInstance.Make;
+            modelLabel.Text = VehicleInstance.Model;
+            yearLabel.Text = VehicleInstance.Year.ToString();
+            outstandingDebtLabel.Text = VehicleInstance.OutstandingDebt.ToString();
+
+            if (seller)
+            {
+                actionButton.Text = "Overdrag ejerskab";
+            }
+            else
+            {
+                actionButton.Text = "Overtag ejerskab";
+            }
+        }
+
         private void actionButton_Pressed(object sender, EventArgs e)
         {
-            HandOffResponse response = doPostCallRestService("SomeThing", RegNumber);
-            handoffLabel.Text = response.handoffId;
+            if (seller)
+            {
+                HandOffResponse response = doPostCallRestService("SomeThing", RegNumber);
+                handoffLabel.Text = response.handoffId;
+            } else {
+                doPutCallRestService(handoffId);
+            }
         }
 
         private void actionButton_Clicked(object sender, EventArgs e)
         {
-            HandOffResponse response = doPostCallRestService("SomeThing", RegNumber);
-            handoffLabel.Text = response.handoffId;
+            if (seller)
+            {
+                HandOffResponse response = doPostCallRestService("SomeThing", RegNumber);
+                handoffLabel.Text = response.handoffId;
+            }
+            else
+            {
+                doPutCallRestService(handoffId);
+            }
         }
 
         private HandOffResponse doPostCallRestService(String licensId, String licensPlate)
         {
             HttpClient client = new HttpClient();
             var uri = new Uri("http://10.105.112.115:8080/handoff/initiate/" + licensPlate);
-
-            //var values = new Dictionary<string, string> { { "licenseId", licensId } };
-            //var httpContent = new FormUrlEncodedContent(values);
 
             var httpContent = new StringContent("{ 'licenseId': '" + licensId + "'}", Encoding.UTF8, "application/json");
 
@@ -72,6 +106,18 @@ namespace omregistrering
 
             var content = response.Content.ReadAsStringAsync().Result;
             return JsonConvert.DeserializeObject<HandOffResponse>(content);
+        }
+
+        private void doPutCallRestService(String handoffId)
+        {
+            HttpClient client = new HttpClient();
+            var uri = new Uri("http://10.105.112.115:8080/acquire/status/" + handoffId);
+
+            var httpContent = new StringContent("{ 'status': 'COMPLETED'}", Encoding.UTF8, "application/json");
+
+            var response = client.PutAsync(uri, httpContent).Result;
+
+            response.EnsureSuccessStatusCode();
         }
     }
 }

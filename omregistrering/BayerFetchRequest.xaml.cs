@@ -20,11 +20,12 @@ namespace omregistrering
         {
             try
             {
-                var acquireResponse = callRestService(((Entry)sender).Text);
+                var handoffId = ((Entry)sender).Text;
+                var acquireResponse = callRestService(handoffId);
 
                 if (acquireResponse != null)
-                {                    
-                    ListVehicleDetails listVehicleDetails = new ListVehicleDetails("XY55999", false);
+                {
+                    ListVehicleDetails listVehicleDetails = new ListVehicleDetails(handoffId);
 
                     await Navigation.PushAsync(listVehicleDetails);
                 }
