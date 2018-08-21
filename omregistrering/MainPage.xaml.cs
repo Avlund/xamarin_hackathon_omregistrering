@@ -13,5 +13,16 @@ namespace omregistrering
         {
             InitializeComponent();
         }
+
+        private async void OnSellerButtonClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ListSellersVehicles());
+        }
+
+        private async void OnBuyerButtonClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new BayerFetchRequest());
+        }
+
     }
 }

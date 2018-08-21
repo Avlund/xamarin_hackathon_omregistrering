@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="omregistrering.BayerFetchRequest"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    NavigationPage.HasBackButton="False">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label
+                FontSize="30"
+                HorizontalOptions="Center"
+                Text="Hent anmodning om køb"
+                VerticalOptions="Center" />
+            <Label Text="Indtast kode fra sælger" 
+                HorizontalOptions="Center"/>
+            <Entry
+                FontSize="30"
+                Placeholder="* * * *"
+                HorizontalOptions="Center"
+                Keyboard="Numeric"
+                MaxLength="4"
+                WidthRequest="85"
+                HeightRequest="60"
+                BackgroundColor="LightGray"
+                Completed="OnEntryCompleted"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

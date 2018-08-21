@@ -1,7 +1,28 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:omregistrering" x:Class="omregistrering.MainPage">
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="omregistrering.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:omregistrering">
     <StackLayout>
-        <!-- Place new controls here -->
-        <Label Text="Welcome to Xamarin.Forms!" HorizontalOptions="Center" VerticalOptions="CenterAndExpand" />
+        <!--  Place new controls here  -->
+        <Label
+            FontSize="40"
+            HorizontalOptions="Center"
+            Text="Omregistrering"
+            VerticalOptions="Start" />
+        <Label
+            FontSize="Large"
+            HorizontalOptions="Center"
+            Text="Anvend som:"
+            VerticalOptions="Start" />
+        <Button
+            Clicked="OnBuyerButtonClicked"
+            Text="Køber"
+            VerticalOptions="Center" />
+        <Button
+            Clicked="OnSellerButtonClicked"
+            Text="Sælger"
+            VerticalOptions="Center" />
     </StackLayout>
 </ContentPage>
