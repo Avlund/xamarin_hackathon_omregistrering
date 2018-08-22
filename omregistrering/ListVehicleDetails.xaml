@@ -42,12 +42,7 @@
                 BackgroundColor="Green" 
                 Pressed="actionButton_Pressed"
                 Clicked="actionButton_Clicked"
-                />
-            <Label
-                x:Name="handoffLabel"
-                FontSize="20"
-                HorizontalOptions="Center"
-                VerticalOptions="Center" />
+                />            
         </StackLayout>        
     </ContentPage.Content>
 </ContentPage>

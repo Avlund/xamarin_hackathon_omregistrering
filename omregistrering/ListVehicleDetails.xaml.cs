@@ -74,7 +74,11 @@ namespace omregistrering
             if (seller)
             {
                 HandOffResponse response = doPostCallRestService("SomeThing", RegNumber);
-                handoffLabel.Text = response.handoffId;
+
+                SellerStatusPage sellerStatusPage = new SellerStatusPage(response.handoffId);
+
+                Navigation.PushAsync(sellerStatusPage);
+
             } else {
                 doPutCallRestService(handoffId);
             }
@@ -85,7 +89,10 @@ namespace omregistrering
             if (seller)
             {
                 HandOffResponse response = doPostCallRestService("SomeThing", RegNumber);
-                handoffLabel.Text = response.handoffId;
+
+                SellerStatusPage sellerStatusPage = new SellerStatusPage(response.handoffId);
+
+                Navigation.PushAsync(sellerStatusPage);
             }
             else
             {
