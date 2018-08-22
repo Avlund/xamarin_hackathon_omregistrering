@@ -21,7 +21,7 @@ namespace omregistrering
 
         private async void OnBuyerButtonClicked(object sender, EventArgs e)
         {
-            await Navigation.PushAsync(new BayerFetchRequest());
+            await Navigation.PushAsync(new BuyerFetchRequest());
         }
 
     }

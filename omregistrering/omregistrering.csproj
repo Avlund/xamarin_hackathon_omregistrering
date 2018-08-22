@@ -10,8 +10,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="BayerFetchRequest.xaml.cs">
-      <DependentUpon>BayerFetchRequest.xaml</DependentUpon>
+    <Compile Update="BuyerFetchRequest.xaml.cs">
+      <DependentUpon>BuyerFetchRequest.xaml</DependentUpon>
     </Compile>
     <Compile Update="ListVehicleDetails.xaml.cs">
       <DependentUpon>ListVehicleDetails.xaml</DependentUpon>
@@ -19,7 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="BayerFetchRequest.xaml">
+    <EmbeddedResource Update="BuyerFetchRequest.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="ListVehicleDetails.xaml">

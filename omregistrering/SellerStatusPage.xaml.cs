@@ -27,7 +27,7 @@ namespace omregistrering
             base.OnAppearing();
 
             HttpClient client = new HttpClient();
-            var uri = new Uri("http://10.105.112.115:8080/handoff/status/" + handoffId);
+            var uri = new Uri(App.webServiceHost + "/handoff/status/" + handoffId);
 
             Boolean b = true;
 

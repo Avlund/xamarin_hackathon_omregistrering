@@ -103,7 +103,7 @@ namespace omregistrering
         private HandOffResponse doPostCallRestService(String licensId, String licensPlate)
         {
             HttpClient client = new HttpClient();
-            var uri = new Uri("http://10.105.112.115:8080/handoff/initiate/" + licensPlate);
+            var uri = new Uri(App.webServiceHost + "/handoff/initiate/" + licensPlate);
 
             var httpContent = new StringContent("{ 'licenseId': '" + licensId + "'}", Encoding.UTF8, "application/json");
 
@@ -118,7 +118,7 @@ namespace omregistrering
         private void doPutCallRestService(String handoffId)
         {
             HttpClient client = new HttpClient();
-            var uri = new Uri("http://10.105.112.115:8080/acquire/status/" + handoffId);
+            var uri = new Uri(App.webServiceHost + "/acquire/status/" + handoffId);
 
             var httpContent = new StringContent("{ 'status': 'COMPLETED'}", Encoding.UTF8, "application/json");
 

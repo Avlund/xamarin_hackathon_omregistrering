@@ -9,12 +9,12 @@ using Xamarin.Forms.Xaml;
 namespace omregistrering
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class BayerFetchRequest : ContentPage
+	public partial class BuyerFetchRequest : ContentPage
 	{
-		public BayerFetchRequest ()
-		{
-			InitializeComponent ();
-		}
+		public BuyerFetchRequest()
+        {
+            InitializeComponent();
+        }
 
         private async void OnEntryCompleted(object sender, EventArgs e)
         {
@@ -37,7 +37,7 @@ namespace omregistrering
         private AcquireResponse callRestService(String handoffId)
         {
             HttpClient client = new HttpClient();
-            var uri = new Uri("http://10.105.112.115:8080/acquire/initiate/ww00007");
+            var uri = new Uri(App.webServiceHost + "/acquire/initiate/ww00007");
             var httpContent = new StringContent("{ 'handoffId': '" + handoffId + "'}", Encoding.UTF8, "application/json");
 
             var response = client.PostAsync(uri, httpContent).Result;
