@@ -7,42 +7,45 @@
     <ContentPage.Content>
         <StackLayout>
             <Label
-                FontSize="30"
-                HorizontalOptions="Center"
+                BackgroundColor="#cccccc"
+                FontSize="25"
+                HorizontalOptions="FillAndExpand"
+                HorizontalTextAlignment="Center"
                 Text="Køretøjs detaljer"
                 VerticalOptions="Center" />
-            <Label
-                x:Name="regNumberLabel"
-                FontSize="20"
-                HorizontalOptions="Center"
-                VerticalOptions="Center" />
-            <Label
-                x:Name="makeLabel"
-                FontSize="20"
-                HorizontalOptions="Center"
-                VerticalOptions="Center" />
-            <Label
-                x:Name="modelLabel"
-                FontSize="20"
-                HorizontalOptions="Center"
-                VerticalOptions="Center" />
-            <Label
-                x:Name="yearLabel"
-                FontSize="20"
-                HorizontalOptions="Center"
-                VerticalOptions="Center" />
-            <Label
-                x:Name="outstandingDebtLabel"
-                FontSize="20"
-                HorizontalOptions="Center"
-                VerticalOptions="Center" />
-            <Button 
-                x:Name="actionButton"
-                Text="" 
-                BackgroundColor="Green" 
-                Pressed="actionButton_Pressed"
-                Clicked="actionButton_Clicked"
-                />            
-        </StackLayout>        
+            <StackLayout>
+                <Label
+                    x:Name="regNumberLabel"
+                    FontSize="20"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center" />
+                <Label
+                    x:Name="makeLabel"
+                    FontSize="20"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center" />
+                <Label
+                    x:Name="modelLabel"
+                    FontSize="20"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center" />
+                <Label
+                    x:Name="yearLabel"
+                    FontSize="20"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center" />
+                <Label
+                    x:Name="outstandingDebtLabel"
+                    FontSize="20"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center" />
+                <Button
+                    x:Name="actionButton"
+                    BackgroundColor="Green"
+                    Clicked="actionButton_Clicked"
+                    Pressed="actionButton_Pressed"
+                    Text="" />
+            </StackLayout>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

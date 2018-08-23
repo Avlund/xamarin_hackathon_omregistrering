@@ -5,24 +5,27 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:omregistrering">
     <StackLayout>
-        <!--  Place new controls here  -->
         <Label
-            FontSize="40"
-            HorizontalOptions="Center"
+            BackgroundColor="#cccccc"
+            FontSize="25"
+            HorizontalOptions="FillAndExpand"
+            HorizontalTextAlignment="Center"
             Text="Omregistrering"
-            VerticalOptions="Start" />
-        <Label
-            FontSize="Large"
-            HorizontalOptions="Center"
-            Text="Anvend som:"
-            VerticalOptions="Start" />
-        <Button
-            Clicked="OnBuyerButtonClicked"
-            Text="Køber"
             VerticalOptions="Center" />
-        <Button
-            Clicked="OnSellerButtonClicked"
-            Text="Sælger"
-            VerticalOptions="Center" />
+        <StackLayout>
+            <Label
+                FontSize="15"
+                HorizontalOptions="Center"
+                Text="Anvend som:"
+                VerticalOptions="Center" />
+            <Button
+                Clicked="OnBuyerButtonClicked"
+                Text="Køber"
+                VerticalOptions="Center" />
+            <Button
+                Clicked="OnSellerButtonClicked"
+                Text="Sælger"
+                VerticalOptions="Center" />
+        </StackLayout>
     </StackLayout>
 </ContentPage>

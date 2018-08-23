@@ -29,12 +29,14 @@
         ItemTapped="Handle_ItemTapped"
         ItemsSource="{Binding Items}">
         <ListView.Header>
-            <StackLayout Padding="10,5,0,5" BackgroundColor="#cccccc">
+            <StackLayout>
                 <Label
-                    FontSize="30"
-                    HorizontalOptions="Center"
-                    Text="Mine køretøjer"
-                    VerticalOptions="Center" />
+                BackgroundColor="#cccccc"
+                FontSize="25"
+                HorizontalOptions="FillAndExpand"
+                Text="Mine køretøjer"
+                HorizontalTextAlignment="Center"
+                VerticalOptions="Center" />                
             </StackLayout>
         </ListView.Header>
         <ListView.ItemTemplate>

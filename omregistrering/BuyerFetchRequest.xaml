@@ -7,22 +7,25 @@
     <ContentPage.Content>
         <StackLayout>
             <Label
-                FontSize="30"
-                HorizontalOptions="Center"
-                Text="Hent anmodning om køb"
+                BackgroundColor="#cccccc"
+                FontSize="25"
+                HorizontalOptions="FillAndExpand"
+                HorizontalTextAlignment="Center"
+                Text="Hent anmodning"
                 VerticalOptions="Center" />
-            <Label Text="Indtast kode fra sælger" 
-                HorizontalOptions="Center"/>
-            <Entry
-                FontSize="30"
-                Placeholder="* * * *"
-                HorizontalOptions="Center"
-                Keyboard="Numeric"
-                MaxLength="4"
-                WidthRequest="85"
-                HeightRequest="60"
-                BackgroundColor="LightGray"
-                Completed="OnEntryCompleted"/>
+            <StackLayout>
+                <Label HorizontalOptions="Center" Text="Indtast kode fra sælger" />
+                <Entry
+                    BackgroundColor="LightGray"
+                    Completed="OnEntryCompleted"
+                    FontSize="30"
+                    HeightRequest="60"
+                    HorizontalOptions="Center"
+                    Keyboard="Numeric"
+                    MaxLength="4"
+                    Placeholder="* * * *"
+                    WidthRequest="85" />
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
