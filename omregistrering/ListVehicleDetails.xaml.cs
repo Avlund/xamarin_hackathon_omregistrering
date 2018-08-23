@@ -69,23 +69,6 @@ namespace omregistrering
             }
         }
 
-        //private void actionButton_Pressed(object sender, EventArgs e)
-        //{
-        //    if (seller)
-        //    {
-        //        HandOffResponse response = doPostCallRestService("SomeThing", RegNumber);
-
-        //        SellerStatusPage sellerStatusPage = new SellerStatusPage(response.handoffId);
-
-        //        Navigation.PushAsync(sellerStatusPage);
-
-        //    } else {
-        //        doPutCallRestService(handoffId);
-
-        //        Navigation.PushAsync(new ReceiptPage(RegNumber));
-        //    }
-        //}
-
         private void actionButton_Clicked(object sender, EventArgs e)
         {
             if (seller)
