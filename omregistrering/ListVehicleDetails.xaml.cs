@@ -81,6 +81,8 @@ namespace omregistrering
 
             } else {
                 doPutCallRestService(handoffId);
+
+                Navigation.PushAsync(new ReceiptPage(RegNumber));
             }
         }
 
@@ -97,6 +99,8 @@ namespace omregistrering
             else
             {
                 doPutCallRestService(handoffId);
+
+                Navigation.PushAsync(new ReceiptPage(RegNumber));
             }
         }
 

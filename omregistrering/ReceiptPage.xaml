@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="omregistrering.ReceiptPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    NavigationPage.HasBackButton="False">
+    <ContentPage.Content>
+        <StackLayout >
+            <Label
+                BackgroundColor="#cccccc"
+                FontSize="25"
+                HorizontalOptions="FillAndExpand"
+                Text="Kvittering"
+                HorizontalTextAlignment="Center"
+                VerticalOptions="Center" />
+            <StackLayout>
+                <Label
+                    x:Name="line_1"
+                    FontSize="20"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center" />
+                <Label
+                    x:Name="line_2"
+                    FontSize="20"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center" />
+                <Label
+                    x:Name="line_3"
+                    FontSize="20"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center" />
+                <Label
+                    x:Name="line_4"
+                    FontSize="20"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center" />
+                <Label
+                    x:Name="line_5"
+                    FontSize="20"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center" />
+                <Label
+                    x:Name="line_6"
+                    FontSize="20"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center" />
+                <Label
+                    x:Name="line_7"
+                    FontSize="20"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center" />
+            </StackLayout>
+        </StackLayout>
+
+    </ContentPage.Content>
+</ContentPage>
