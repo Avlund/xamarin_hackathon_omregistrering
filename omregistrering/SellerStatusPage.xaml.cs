@@ -26,26 +26,35 @@ namespace omregistrering
         {
             base.OnAppearing();
 
-            HttpClient client = new HttpClient();
-            var uri = new Uri(App.webServiceHost + "/handoff/status/" + handoffId);
+            new System.Threading.Thread(new System.Threading.ThreadStart(() =>
+            {
 
-            Boolean b = true;
 
-            //while (b)
-            //{
-                var response = client.GetAsync(uri).Result;
-                response.EnsureSuccessStatusCode();
+                HttpClient client = new HttpClient();
+                var uri = new Uri(App.webServiceHost + "/handoff/status/" + handoffId);
 
-                var content = response.Content.ReadAsStringAsync().Result;
-                statusLabel.Text = content;
-
-                if (content.Contains("COMPLETED"))
+                while (true)
                 {
-                    b = false;
+                    var response = client.GetAsync(uri).Result;
+                    response.EnsureSuccessStatusCode();
+
+                    var content = response.Content.ReadAsStringAsync().Result;
+                    Device.BeginInvokeOnMainThread(() =>
+                    {
+                        statusLabel.Text = content;
+                    });
+
+                    if (content.Contains("COMPLETED"))
+                    {
+                        break;
+                    }
+
+                    System.Threading.Thread.Sleep(2000);
                 }
 
-                System.Threading.Thread.Sleep(3000);
-            //}
+                ReceiptPage receiptPage = new ReceiptPage("XY55999", true);
+                Navigation.PushAsync(receiptPage);
+            })).Start();
         }
     }
 }
