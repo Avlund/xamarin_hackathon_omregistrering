@@ -43,7 +43,6 @@
                     x:Name="actionButton"
                     BackgroundColor="Green"
                     Clicked="actionButton_Clicked"
-                    Pressed="actionButton_Pressed"
                     Text="" />
             </StackLayout>
         </StackLayout>

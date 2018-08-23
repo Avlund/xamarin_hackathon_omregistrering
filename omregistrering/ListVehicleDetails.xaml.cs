@@ -69,22 +69,22 @@ namespace omregistrering
             }
         }
 
-        private void actionButton_Pressed(object sender, EventArgs e)
-        {
-            if (seller)
-            {
-                HandOffResponse response = doPostCallRestService("SomeThing", RegNumber);
+        //private void actionButton_Pressed(object sender, EventArgs e)
+        //{
+        //    if (seller)
+        //    {
+        //        HandOffResponse response = doPostCallRestService("SomeThing", RegNumber);
 
-                SellerStatusPage sellerStatusPage = new SellerStatusPage(response.handoffId);
+        //        SellerStatusPage sellerStatusPage = new SellerStatusPage(response.handoffId);
 
-                Navigation.PushAsync(sellerStatusPage);
+        //        Navigation.PushAsync(sellerStatusPage);
 
-            } else {
-                doPutCallRestService(handoffId);
+        //    } else {
+        //        doPutCallRestService(handoffId);
 
-                Navigation.PushAsync(new ReceiptPage(RegNumber));
-            }
-        }
+        //        Navigation.PushAsync(new ReceiptPage(RegNumber));
+        //    }
+        //}
 
         private void actionButton_Clicked(object sender, EventArgs e)
         {

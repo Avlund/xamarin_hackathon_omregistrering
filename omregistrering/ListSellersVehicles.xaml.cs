@@ -6,10 +6,7 @@ namespace omregistrering
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ListSellersVehicles : ContentPage
     {
-        //public ObservableCollection<string> Items { get; set; }
-
         Vehicles Items;
-
 
         public ListSellersVehicles()
         {
@@ -18,16 +15,6 @@ namespace omregistrering
             BindingContext = Items;
 
             InitializeComponent();
-
-
-            //Items = new ObservableCollection<string>
-            //{
-            //    "Ford Ka   XY 55 999",
-            //    "Ford Ka   AB 22 333",
-            //    "Renault Megane BA 50 100"
-            //};
-
-            //MyListView.ItemsSource = Items;
         }
 
         async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
