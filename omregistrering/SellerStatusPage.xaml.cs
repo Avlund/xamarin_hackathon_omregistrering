@@ -19,7 +19,7 @@ namespace omregistrering
 
             string barcodeText = "{'licensePlate': '" + regNumber + "', 'handoffId': '" + handOff + "'}";
             qrImage.BarcodeValue = barcodeText;
-            handoffLabel.Text = barcodeText;
+            //handoffLabel.Text = barcodeText;
         }
 
         protected override void OnAppearing()
@@ -39,12 +39,10 @@ namespace omregistrering
                     var content = response.Content.ReadAsStringAsync().Result;
                     Device.BeginInvokeOnMainThread(() =>
                     {
-                        //statusLabel.Text = content;
-
                         if (content.Contains("INPROGRESS"))
                         {
                             qrImage.IsVisible = false;
-                            handoffLabel.Text = "Afventer køber";
+                            headline.Text = "Afventer køber";
                         }                       
                     });
 
@@ -59,9 +57,7 @@ namespace omregistrering
                     }
                     System.Threading.Thread.Sleep(2000);
                 }                
-            })).Start();
-
-            
+            })).Start();            
         }        
     }
 }
