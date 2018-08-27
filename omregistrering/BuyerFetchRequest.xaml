@@ -1,31 +1,14 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage
-    x:Class="omregistrering.BuyerFetchRequest"
-    xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    NavigationPage.HasBackButton="False">
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage x:Class="omregistrering.BuyerFetchRequest" xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" NavigationPage.HasBackButton="False">
     <ContentPage.Content>
-        <StackLayout>
-            <Label
-                BackgroundColor="#cccccc"
-                FontSize="25"
-                HorizontalOptions="FillAndExpand"
-                HorizontalTextAlignment="Center"
-                Text="Hent anmodning"
-                VerticalOptions="Center" />
-            <StackLayout>
-                <Label HorizontalOptions="Center" Text="Indtast kode fra sælger" />
-                <Entry
-                    BackgroundColor="LightGray"
-                    Completed="OnEntryCompleted"
-                    FontSize="30"
-                    HeightRequest="60"
-                    HorizontalOptions="Center"
-                    Keyboard="Numeric"
-                    MaxLength="4"
-                    Placeholder="* * * *"
-                    WidthRequest="85" />
-            </StackLayout>
-        </StackLayout>
+        <Grid x:Name="mainGrid">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
