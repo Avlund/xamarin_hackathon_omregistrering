@@ -1,9 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="omregistrering.SellerStatusPage">
+<ContentPage
+    x:Class="omregistrering.SellerStatusPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:zxcm="clr-namespace:ZXing.Common;assembly=zxing.portable"
+    xmlns:zxing="clr-namespace:ZXing.Net.Mobile.Forms;assembly=ZXing.Net.Mobile.Forms">
     <ContentPage.Content>
         <StackLayout>
+            <zxing:ZXingBarcodeImageView
+                x:Name="qrImage"
+                BarcodeFormat="QR_CODE"
+                BarcodeValue="VOID"
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand">
+                <zxing:ZXingBarcodeImageView.BarcodeOptions>
+                    <zxcm:EncodingOptions Width="300" Height="300" />
+                </zxing:ZXingBarcodeImageView.BarcodeOptions>
+            </zxing:ZXingBarcodeImageView>
             <Label
                 x:Name="handoffLabel"
                 FontSize="20"
@@ -12,8 +25,8 @@
             <Label
                 x:Name="statusLabel"
                 FontSize="20"
-                VerticalOptions="Center" 
-                HorizontalOptions="Center" />
+                HorizontalOptions="Center"
+                VerticalOptions="Center" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -1,10 +1,5 @@
-﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System;
 using System.Net.Http;
-using System.Text;
-using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -20,6 +15,7 @@ namespace omregistrering
             InitializeComponent();
             this.handoffId = handOff;
             handoffLabel.Text = handOff;
+            qrImage.BarcodeValue = handOff;
         }
 
         protected override void OnAppearing()
@@ -28,8 +24,6 @@ namespace omregistrering
 
             new System.Threading.Thread(new System.Threading.ThreadStart(() =>
             {
-
-
                 HttpClient client = new HttpClient();
                 var uri = new Uri(App.webServiceHost + "/handoff/status/" + handoffId);
 
@@ -55,6 +49,6 @@ namespace omregistrering
                 ReceiptPage receiptPage = new ReceiptPage("XY55999", true);
                 Navigation.PushAsync(receiptPage);
             })).Start();
-        }
+        }        
     }
 }

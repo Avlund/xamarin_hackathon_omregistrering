@@ -7,7 +7,7 @@ namespace omregistrering
 {
     public partial class App : Application
     {
-        public static readonly string webServiceHost = "http://192.168.195.161:8080";
+        public static readonly string webServiceHost = "http://192.168.195.185:8080";
         public App()
         {
             InitializeComponent();
