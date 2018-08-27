@@ -22,11 +22,11 @@
                 FontSize="20"
                 HorizontalOptions="Center"
                 VerticalOptions="Center" />
-            <Label
+            <!--<Label
                 x:Name="statusLabel"
                 FontSize="20"
                 HorizontalOptions="Center"
-                VerticalOptions="Center" />
+                VerticalOptions="Center" />-->
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

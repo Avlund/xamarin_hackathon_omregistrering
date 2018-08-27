@@ -25,7 +25,7 @@ namespace omregistrering
 
                 if (acquireResponse != null)
                 {
-                    ListVehicleDetails listVehicleDetails = new ListVehicleDetails(handoffId);
+                    ListVehicleDetails listVehicleDetails = new ListVehicleDetails("XX11222", handoffId);
 
                     await Navigation.PushAsync(listVehicleDetails);
                 }

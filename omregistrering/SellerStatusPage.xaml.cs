@@ -10,12 +10,16 @@ namespace omregistrering
     public partial class SellerStatusPage : ContentPage
     {
         string handoffId;
-        public SellerStatusPage(string handOff)
+        string regNumber;
+        public SellerStatusPage(string regNumber, string handOff)
         {
             InitializeComponent();
             this.handoffId = handOff;
-            handoffLabel.Text = handOff;
-            qrImage.BarcodeValue = handOff;
+            this.regNumber = regNumber;
+
+            string barcodeText = "{'licensePlate': '" + regNumber + "', 'handoffId': '" + handOff + "'}";
+            qrImage.BarcodeValue = barcodeText;
+            handoffLabel.Text = barcodeText;
         }
 
         protected override void OnAppearing()
@@ -35,20 +39,29 @@ namespace omregistrering
                     var content = response.Content.ReadAsStringAsync().Result;
                     Device.BeginInvokeOnMainThread(() =>
                     {
-                        statusLabel.Text = content;
+                        //statusLabel.Text = content;
+
+                        if (content.Contains("INPROGRESS"))
+                        {
+                            qrImage.IsVisible = false;
+                            handoffLabel.Text = "Afventer køber";
+                        }                       
                     });
 
                     if (content.Contains("COMPLETED"))
                     {
+                        Device.BeginInvokeOnMainThread(() =>
+                        {
+                            ReceiptPage receiptPage = new ReceiptPage(regNumber, true);
+                            Navigation.PushAsync(receiptPage);
+                        });
                         break;
                     }
-
                     System.Threading.Thread.Sleep(2000);
-                }
-
-                ReceiptPage receiptPage = new ReceiptPage("XY55999", true);
-                Navigation.PushAsync(receiptPage);
+                }                
             })).Start();
+
+            
         }        
     }
 }

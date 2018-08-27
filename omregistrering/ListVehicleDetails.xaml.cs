@@ -47,9 +47,9 @@ namespace omregistrering
             }
         }
 
-        public ListVehicleDetails(string handoffId)
+        public ListVehicleDetails(string regNumber, string handoffId)
         {
-            this.RegNumber = "XY55999";
+            this.RegNumber = regNumber;
             this.handoffId = handoffId;
             VehicleInstance = new Vehicles().getVehicle(RegNumber);
             InitializeComponent();
@@ -75,7 +75,7 @@ namespace omregistrering
             {
                 HandOffResponse response = doPostCallRestService("SomeThing", RegNumber);
 
-                SellerStatusPage sellerStatusPage = new SellerStatusPage(response.handoffId);
+                SellerStatusPage sellerStatusPage = new SellerStatusPage(RegNumber, response.handoffId);
 
                 Navigation.PushAsync(sellerStatusPage);
             }
