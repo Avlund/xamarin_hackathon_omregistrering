@@ -58,6 +58,12 @@ namespace omregistrering
                     System.Threading.Thread.Sleep(2000);
                 }                
             })).Start();            
-        }        
+        }
+
+        protected override bool OnBackButtonPressed()
+        {
+            Navigation.PushAsync(new MainPage());
+            return true;
+        }
     }
 }

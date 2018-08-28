@@ -9,15 +9,15 @@ using Xamarin.Forms.Xaml;
 
 namespace omregistrering
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class ReceiptPage : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class ReceiptPage : ContentPage
+    {
         private Boolean seller;
 
-		public ReceiptPage ()
-		{
+        public ReceiptPage()
+        {
             seller = false;
-            InitializeComponent ();            
+            InitializeComponent();
         }
 
         public ReceiptPage(string regNumber, Boolean seller = false)
@@ -43,6 +43,13 @@ namespace omregistrering
             line_5.Text = "af køretøjet";
             line_6.Text = "med reg. nummer:";
             line_7.Text = regNumber;
+        }
+
+
+        protected override bool OnBackButtonPressed()
+        {
+            Navigation.PushAsync(new MainPage());
+            return true;
         }
     }
 }
